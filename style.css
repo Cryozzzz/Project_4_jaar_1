@@ -43,11 +43,10 @@ a {
 }
 
 .foto_AI {
-    margin-left: 800px;
     display: flex;
     border-radius: 20px; ;
     width: 380px;
-    margin-top: 40px;
+    margin-top: 80px;
 }
 
 footer {
@@ -58,4 +57,19 @@ footer {
     text-align: center;
     justify-content: center;
 
+}
+
+section{
+    display: flex;
+    gap: 300px;
+}
+
+.text_Container{
+    display: flex;
+    background-color: #E2E4F6;
+    border-radius: 20px;
+    width: 380px;   
+    height: 266px;
+    margin-left: 150px;
+    margin-top: 80px;
 }
