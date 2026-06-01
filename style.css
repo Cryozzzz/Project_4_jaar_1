@@ -7,7 +7,6 @@ body {
 body {
     display: flex;
     color: white;
-    background-color: #E7C8DD;
     flex-direction: column;
     min-height: 100vh;
 }
@@ -18,58 +17,153 @@ main {
 
 header {
     width: 100%;
-    background-color: #D6CCEC;
+    background-color: black;
     height: 100px;
     display: flex;
     position: relative;
     text-decoration: none;
     align-items: center;
+    justify-content: right;
+    color: white;
+
+}
+
+h1{
+    margin-right:45%;
+    display: flex;
+
+
 }
 
 nav {
     display: flex;
     gap: 20px;
-    padding-left: 30px;
+    padding-right: 30px;
+
 }
 
 a {
     text-decoration: none;
-    color: black;
-    background-color: #E2E4F6;
+    color: white;
     padding: 10px;
     border-radius: 15px;
+    background-color: gray;
 
 
 }
 
 .foto_AI {
     display: flex;
-    border-radius: 20px; ;
+    border-radius: 20px;
     width: 380px;
+    height: 266px;
     margin-top: 80px;
 }
 
 footer {
+    color: white;
     display: flex;
-    background-color: #AF929B;
     width: 100%;
     height: 80px;
     text-align: center;
     justify-content: center;
+    background-color: black;
 
 }
 
-section{
+.section {
     display: flex;
-    gap: 300px;
+    max-width:100%;
+    gap:300px ;
 }
 
-.text_Container{
+.text_Container {
     display: flex;
-    background-color: #E2E4F6;
     border-radius: 20px;
-    width: 380px;   
+    width: 380px;
     height: 266px;
     margin-left: 150px;
     margin-top: 80px;
+    background-color: gray;
+}
+
+.text_Container_Contact, .text_Container_Quiz {
+    display: flex;
+    border-radius: 20px;
+    width: 380px;
+    min-height: 266px;
+    margin: auto;
+    margin-top: 80px;
+    flex-direction: column;
+    align-items: center;
+    background-color: gray;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+p{
+    display: flex;
+    color: white;
+    align-items: center;
+    
+}
+
+input{
+    border-radius: 15px;
+    border: none;
+}
+.quiz{
+    padding: 20px 0;
+
+}
+.quiz h3{
+
+}
+
+.btn{
+    background: #fff;
+    width: 100%;
+    border: solid 1px #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px ;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover:not([disabled]){
+    background:#222;
+    color: #fff;
+}
+
+.btn:disabled{
+    cursor: no-drop;
+    color: black;
+}
+
+#next_Btn{
+    background:black ;
+    color: #fff;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: none;
+}
+
+#next_Btn:hover{
+    background-color: white;
+    color: black;
+}
+
+.correct{
+    background: #9aeabc;
+}
+
+.incorrect{
+    background: #ff9393 ;
 }
