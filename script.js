@@ -1,38 +1,47 @@
 const questions = [
     {
-        question: "wich is the largest animal in the world?",
+        question: "wat is nepnieuws?",
         answers: [
-            { text: "Shark", correct: false },
-            { text: "Blue whale", correct: true },
-            { text: "Elephant", correct: false },
-            { text: "Giraffe", correct: false },
+            { text: "Nieuws dat altijd op televisie komt", correct: false },
+            { text: "Nieuws dat bewust onjuiste of misleidende informatie bevat", correct: true },
+            { text: "nieuws op televisie", correct: false },
+            { text: "nieuws dat altijd waar is", correct: false },
         ]
     },
     {
-        question: "wich is the largest animal in the world?",
+        question: "Welke van deze dingen kan een risico van AI zijn?",
         answers: [
-            { text: "Shark", correct: false },
-            { text: "Blue whale", correct: true },
-            { text: "Elephant", correct: false },
-            { text: "Giraffe", correct: false },
+            { text: "Desinformatie verspreiden", correct: false },
+            { text: "Deepfakes maken", correct: false },
+            { text: "Privacyproblemen veroorzaken", correct: false },
+            { text: "Alle bovenstaande antwoorden", correct: true },
         ]
     },
     {
-        question: "wich is the largest animal in the world?",
+        question: "Waarom maken mensen soms nepnieuws?",
         answers: [
-            { text: "Shark", correct: false },
-            { text: "Blue whale", correct: true },
-            { text: "Elephant", correct: false },
-            { text: "Giraffe", correct: false },
+            { text: "Om mensen te informeren", correct: false },
+            { text: "Om geld te verdienen of mensen te beïnvloeden", correct: true },
+            { text: "Omdat ze het leuk vinden", correct: false },
+            { text: "Om mensen te pesten", correct: false },
         ]
     },
     {
-        question: "wich is the largest animal in the world?",
+        question: "Wat is een waarschuwingssignaal van nepnieuws?",
         answers: [
-            { text: "Shark", correct: false },
-            { text: "Blue whale", correct: true },
-            { text: "Elephant", correct: false },
-            { text: "Giraffe", correct: false },
+            { text: "Een betrouwbare bron wordt genoemd", correct: false },
+            { text: "Een neutrale titel", correct: false },
+            { text: "Een sensationele titel die sterke emoties oproept", correct: true },
+            { text: "Meerdere bronnen bevestigen het nieuws", correct: false },
+        ]
+    },
+    {
+        question: "wat is gevaarlijk aan nepnieuws en AI?",
+        answers: [
+            { text: "het kan je dood maken", correct: false },
+            { text: "mensen kunnen het geloven ", correct: true },
+            { text: "Een sensationele titel die sterke emoties oproept", correct: false },
+            { text: "het is echt", correct: false },
         ]
     }
 ];
