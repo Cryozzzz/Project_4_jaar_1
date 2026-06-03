@@ -1,59 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
+const questions = [
+    {
+        question: "wat is nepnieuws?",
+        answers: [
+            { text: "Nieuws dat altijd op televisie komt", correct: false },
+            { text: "Nieuws dat bewust onjuiste of misleidende informatie bevat", correct: true },
+            { text: "nieuws op televisie", correct: false },
+            { text: "nieuws dat altijd waar is", correct: false },
+        ]
+    },
+    {
+        question: "Welke van deze dingen kan een risico van AI zijn?",
+        answers: [
+            { text: "Desinformatie verspreiden", correct: false },
+            { text: "Deepfakes maken", correct: false },
+            { text: "Privacyproblemen veroorzaken", correct: false },
+            { text: "Alle bovenstaande antwoorden", correct: true },
+        ]
+    },
+    {
+        question: "Waarom maken mensen soms nepnieuws?",
+        answers: [
+            { text: "Om mensen te informeren", correct: false },
+            { text: "Om geld te verdienen of mensen te beïnvloeden", correct: true },
+            { text: "Omdat ze het leuk vinden", correct: false },
+            { text: "Om mensen te pesten", correct: false },
+        ]
+    },
+    {
+        question: "Wat is een waarschuwingssignaal van nepnieuws?",
+        answers: [
+            { text: "Een betrouwbare bron wordt genoemd", correct: false },
+            { text: "Een neutrale titel", correct: false },
+            { text: "Een sensationele titel die sterke emoties oproept", correct: true },
+            { text: "Meerdere bronnen bevestigen het nieuws", correct: false },
+        ]
+    },
+    {
+        question: "Welke uitspraak is waar?",
+        answers: [
+            { text: "Alles op internet is betrouwbaar.", correct: false },
+            { text: "Nepnieuws komt alleen voor op sociale media.", correct: false },
+            { text: "Het is verstandig om bronnen te controleren voordat je nieuws deelt.", correct: true },
+            { text: "het is echt", correct: false },
+        ]
+    }
+];
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer_Buttons");
+const nextButton = document.getElementById("next_Btn");
 
-<body>
-    <header>
-        <h1>
-            AI&Nepnieuws
-        </h1>
-        <nav>
-            <a href="home.html" class="Home">Home</a>
-            <a href="AI.html">AI</a>
-            <a href="nepnieuws.html">Nepnieuws</a>
-            <a href="contact.html" class="contact">Contact</a>
-            <a href="quiz.html">Quiz</a>
-        </nav>
-    </header>
+let currentQuestionIndex = 0;
+let score = 0;
 
+function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = "Next";
+    showQuestion();
+}
 
-    <main>
+function showQuestion() {
+    resetState();
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.
+        question;
 
-        <section class="section_Contact">
-            <div class="text_Container_Quiz">
-                <h2>Quiz</h2>
-                <div class="quiz">
-                    <h3 id="question">Question goes here</h3>
-                    <div id="answer_Buttons">
-                        <button class="btn">Anwser 1</button>
-                        <button class="btn">Anwser 2</button>
-                        <button class="btn">Anwser 3</button>
-                        <button class="btn">Anwser 4</button>
-                    </div>
-                    <button id="next_Btn">Next</button>
-                </div>
-            </div>
-            <div>
-
-            </div>
-
-        </section>
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButtons.appendChild(button);
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+    });
+}
 
 
-    </main>
+function resetState() {
+    nextButton.style.display = "none";
+    while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
+}
 
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        score++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+    }
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
 
+    });
+    nextButton.style.display = "block";
+}
 
-    <footer>
-        <p>&copy; 2026 Damir&Sefanja</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
+function showScore(){
+    resetState();
+    questionElement.innerHTML = `You scored ${score} out of ${ questions.length}!`;
+    nextButton.innerHTML = "Play Again"
+    nextButton.style.display = "block";
+}
 
-</html>
+function handleNextButton(){
+    currentQuestionIndex++;
+    if(currentQuestionIndex < questions.length){
+        showQuestion();
+    }else{
+        showScore();
+    }
+}
+
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
+        handleNextButton();
+    }else{
+       startQuiz();
+    }
+});
+
+startQuiz();
